@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ClientApiService } from 'src/app/services/client-api.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { FullUser } from 'src/app/Models/user.model';
+import { UsersListComponent } from './users-list/users-list.component';
 
 @Component({
   selector: 'app-users',
@@ -9,51 +9,8 @@ import { FullUser } from 'src/app/Models/user.model';
   ]
 })
 export class UsersComponent implements OnInit {
-  users: FullUser[];
-  page = 1;
-  loading = false;
-  totalRecords = 0;
-  fetchForward = false;
-  // deleteSuccess
-  constructor( private apiService: ClientApiService) { }
+  @Input() users: FullUser[];
 
   ngOnInit(): void {
-   this.fetch(this.page);
-  }
-
-  fetch(page: number) {
-      this.loading = true;
-      this.apiService.listData('users', page.toString())
-      .subscribe(
-        (data: any) => {
-          this.loading = true;
-          this.totalRecords = data.total;
-          this.fetchForward = (this.page * data.data.length) < data.total;
-          this.loading = false;
-          this.users = data.data;
-      });
-  }
-
-  public fetchNext() {
-    if(this.users.length > 0) {
-      this.page++;
-      this.fetch(this.page);
-    }
-  }
-
-  public fetchPrev() {
-    if(this.page > 1) {
-      this.page--;
-    }
-    this.fetch(this.page);
-  }
-
-  public deleteUser(id: string, i: number) {
-
-    this.apiService.deleteInstance('users', id).subscribe(
-      data => {
-        this.fetch(this.page);
-      }
-    );
   }
 }

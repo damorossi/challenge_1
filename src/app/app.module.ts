@@ -15,6 +15,8 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { AuthGuard } from './services/auth.guard';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { CommonTableComponent } from './shared/common-table/common-table.component';
+import { MainTableComponent } from './components/shared/main-table/main-table.component';
+import { UsersListComponent } from './components/users/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CommonTableComponent } from './shared/common-table/common-table.compone
     RegisterComponent,
     ForbiddenComponent,
     CommonTableComponent,
+    MainTableComponent,
+    UsersListComponent,
   ],
   imports: [
     BrowserModule,

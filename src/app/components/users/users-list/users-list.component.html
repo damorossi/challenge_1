@@ -1,0 +1,25 @@
+<div>
+    <table class="table table-striped mt-5 animated-fadeIn">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of items; let i = index;">
+            <th scope="row"><img [src]="user.avatar" class="img-thumb" alt="..." style="border-radius:50%; height: 40px" /></th>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>
+                <button class="btn btn-info mr-3"
+                    [routerLink]="['/users', user.id]"><i class="fa fa-pen"></i></button>
+                <button class="btn btn-danger" (click)="deleteInstance.emit(user.id)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

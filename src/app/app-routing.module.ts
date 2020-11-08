@@ -4,14 +4,16 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
+import { MainTableComponent } from './components/shared/main-table/main-table.component';
 import { UserComponent } from './components/users/user/user.component';
+import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { UsersComponent } from './components/users/users.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: UsersComponent },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/:id', component: UserComponent, canActivate: [AuthGuard] },
   { path: '403', component: ForbiddenComponent},
