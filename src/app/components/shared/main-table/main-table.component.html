@@ -1,5 +1,5 @@
 <div class="main-container animated-fadeIn fast mt-5">
-    <h1>Users list</h1>
+    <h1>{{dyamicModelName}} list</h1>
     <div class="row" *ngIf="!loading && items?.length > 0">
         <!-- if you have other type of list instead of users, you can set them here or do it in an external component-->
        <app-users-list *ngIf="dyamicModelName === 'users'"
@@ -22,12 +22,6 @@
             </button>
         </div>
     </div>
-    <app-data-handler [loading]="loading" [dataLength]="items?.length === 0"></app-data-handler>
+    <app-data-handler [loading]="loading" [dataLength]="items?.length"></app-data-handler>
     <div class="row mb-20">
-    <div class="col text-right">
-        <button class="btn btn-primary"
-            routerLink="/users/add">
-            <i class="fa fa-plus m5"></i> Add
-        </button>
-    </div>
 </div>

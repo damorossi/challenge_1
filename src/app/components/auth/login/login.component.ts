@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  title = 'Login'
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit(login: NgForm) {
     const loginSubscription = {
-      next: x => console.log('user logged redirect to users'),
+      next: x => this.router.navigate(['users']),
       error: err =>  this.router.navigate(['error'])
     };
     this.authService.login(login.value).subscribe(

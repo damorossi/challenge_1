@@ -16,13 +16,8 @@ export class MainTableComponent implements OnInit, OnChanges {
   loading = false;
   totalRecords = 0;
   fetchForward = false;
-  myContext = {items: []};
-  tableComponentInputProperties: {
-    items?: any[];
-  } = {};
 
   tableComponentOutputProperties = {
-    // editItem: ($event) => this.editItem.emit($event),
     deleteItem: ($event) => this.deleteItem($event),
   };
 
@@ -45,7 +40,7 @@ export class MainTableComponent implements OnInit, OnChanges {
 
   fetch(page: number) {
       this.loading = true;
-      this.apiService.listData('users', page.toString())
+      this.apiService.listData( this.dyamicModelName, page.toString())
       .subscribe(
         (data: any) => {
           this.loading = true;
@@ -53,7 +48,6 @@ export class MainTableComponent implements OnInit, OnChanges {
           this.fetchForward = (this.page * data.data.length) < data.total;
           this.loading = false;
           this.items = data.data;
-          this.myContext = { items: this.items}
       });
   }
 
@@ -72,7 +66,6 @@ export class MainTableComponent implements OnInit, OnChanges {
   }
 
   public deleteItem(id: string) {
-
     this.apiService.deleteInstance(this.dyamicModelName, id).subscribe(
      () => {
         this.fetch(this.page);

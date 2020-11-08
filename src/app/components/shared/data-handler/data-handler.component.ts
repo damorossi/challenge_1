@@ -12,5 +12,8 @@ export class DataHandlerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public isTableEmpty(): boolean {
+    return !(this.dataLength > 0);
 
+  }
 }

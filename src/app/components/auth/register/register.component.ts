@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
+  templateUrl: './../login/login.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private authService: AuthService) { }
+  title = 'Register';
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   public onSubmit(login: NgForm) {
     const loginSubscription = {
-      next: x => console.log('user logged redirect to users'),
-      error: err => console.log('error, redirigir ' + err)
+      next: x => this.router.navigate(['login']),
+      error: err => this.router.navigate(['error'])
     };
     this.authService.register(login.value).subscribe(
       loginSubscription

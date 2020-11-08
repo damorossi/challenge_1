@@ -1,5 +1,5 @@
 <div class="container-element m-5 mt-10 ">
-    <h1>User: <small *ngIf="user.id">{{user.name}}</small></h1>
+    <h1>User: <small *ngIf="user?.id">{{user.name}}</small></h1>
     <hr>
 
     <div class="row text-right">
@@ -17,7 +17,7 @@
         <div class="col">
             <form (ngSubmit)="saveData(f)"
                 #f="ngForm">
-                <div class="form-group">
+                <div class="form-group" *ngIf="user?.id">
                     <label> Id</label>
                     <input type="text" 
                         [(ngModel)]="user.id"

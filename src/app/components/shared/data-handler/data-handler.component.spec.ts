@@ -1,8 +1,9 @@
+import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import 'zone.js/dist/zone-testing'
 import { DataHandlerComponent } from './data-handler.component';
 
-describe('DataHandlerComponent', () => {
+fdescribe('DataHandlerComponent', () => {
   let component: DataHandlerComponent;
   let fixture: ComponentFixture<DataHandlerComponent>;
 
@@ -19,7 +20,18 @@ describe('DataHandlerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should should display no data html element', () => {
+    component.dataLength = 0;
+    expect(component.isTableEmpty()).toBeTruthy();
+  });
+
+  it('should should not display no data html', () => {
+    component.dataLength = 50;
+    expect(component.isTableEmpty()).toBeFalsy();
+  });
+
+  it('should should display loading element', () => {
+    component.loading = true;
+    expect(component.loading).toBeTruthy();
   });
 });
