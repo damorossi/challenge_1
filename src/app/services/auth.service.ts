@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'https://reqres.in/api';
+  private url =  environment.apiBaseUrl;
   private endpoint = 'login';
   constructor(private http: HttpClient, private router: Router) { }
 
