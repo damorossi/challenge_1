@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,9 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private url = 'https://reqres.in/api';
   private endpoint = 'login';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   public isLoggedIn() {
-    console.log('eyeyeye')
    return !!localStorage.getItem('token');
   }
 
@@ -22,6 +22,7 @@ export class AuthService {
             const user = {...response};
             if (user.token) {
               localStorage.setItem('token', user.token);
+              this.router.navigate(['users']);
             }
         })
       );
@@ -29,6 +30,11 @@ export class AuthService {
 
   public register(data: any) {
     return this.http.post(`${this.url}/register`, data );
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.router.navigate(['home']);
   }
 
 }

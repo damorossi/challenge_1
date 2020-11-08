@@ -4,6 +4,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 import { MainTableComponent } from './components/shared/main-table/main-table.component';
 import { UserComponent } from './components/users/user/user.component';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
@@ -13,11 +15,13 @@ import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: UsersComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/:id', component: UserComponent, canActivate: [AuthGuard] },
   { path: '403', component: ForbiddenComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'home' },
+  { path: '404', component: NotFoundComponent},
+  { path: 'error', component: ServerErrorComponent},
+  { path: '**', pathMatch: 'full', redirectTo: '404' },
 ];
 
 @NgModule({
