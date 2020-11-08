@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiBaseUrl: 'https://reqres.in/api',
+  authBaseUrl: 'https://reqres.in/api',
   production: false
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

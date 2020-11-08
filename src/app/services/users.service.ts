@@ -11,43 +11,38 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
 
-  public createUser(user: User): Observable<User> {
-     return this.http.post(`${this.url}/users/`, user)
-      .pipe(
-        map((resp: any) => {
-          user.id = resp.id;
-          return user;
-        })
-      );
-  }
+  // public createUser(user: User): Observable<User> {
+  //    return this.http.post(`${this.url}/users/`, user)
+  //     .pipe(
+  //       map((resp: any) => {
+  //         user.id = resp.id;
+  //         return user;
+  //       })
+  //     );
+  // }
 
-  public updateUser(user: User) {
-    const userToUpdate = {
-      ...user
-    };
-    delete userToUpdate.id;
-    return this.http.put(`${this.url}/users/${user.id}`, userToUpdate);
-  }
+  // public updateUser(user: User) {
+  //   const userToUpdate = {
+  //     ...user
+  //   };
+  //   delete userToUpdate.id;
+  //   return this.http.put(`${this.url}/users/${user.id}`, userToUpdate);
+  // }
 
-  public getUsers(page: string) {
-    page = page === '' ? '1' : page;
-    return this.http.get(`${this.url}/users?page=${page}`);
-  }
+  // public getUser(id: string) {
+  //   return this.http.get(`${this.url}/users/${id}`);
+  // }
 
-  public getUser(id: string) {
-    return this.http.get(`${this.url}/users/${id}`);
-  }
+  // public deleteUser(id: string) {
+  //   return this.http.delete(`${this.url}/users/${id}`);
+  // }
 
-  public deleteUser(id: string) {
-    return this.http.delete(`${this.url}/users/${id}`);
-  }
-
-  public getTotals() {
-    const data = this.http.get(`${this.url}/users/`)
-      .subscribe(
-        map(data => {
-          debugger;
-        })
-      );
-  }
+  // public getTotals() {
+  //   const data = this.http.get(`${this.url}/users/`)
+  //     .subscribe(
+  //       map(data => {
+  //         debugger;
+  //       })
+  //     );
+  // }
 }

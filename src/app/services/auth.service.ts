@@ -10,7 +10,6 @@ export class AuthService {
   private endpoint = 'login';
   constructor(private http: HttpClient) { }
 
-  
   public isLoggedIn() {
     console.log('eyeyeye')
    return !!localStorage.getItem('token');

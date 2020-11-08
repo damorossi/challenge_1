@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ClientApiService } from 'src/app/client-api.service';
 import { User } from 'src/app/Models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -16,12 +17,13 @@ export class UserComponent implements OnInit {
   successMessage: boolean;
   constructor(
       private userService: UsersService,
+      private apiService: ClientApiService,
       private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if(id !== 'add') {
-      this.userService.getUser(id)
+      this.apiService.getSingleInstance('users', id)
           .subscribe((resp: any) => {
             this.user = {...resp.data};
             this.user.name = resp.data.first_name + ' ' + resp.data.last_name;
@@ -39,9 +41,9 @@ export class UserComponent implements OnInit {
 
     let request: Observable<any>;
     if(this.user.id) {
-      request = this.userService.updateUser(this.user);
+      request = this.apiService.updateInstance('users', this.user);
     }else {
-      request = this.userService.createUser(this.user)
+      request = this.apiService.createInstance('users', this.user)
     }
 
     request.subscribe(resp => {
@@ -50,7 +52,7 @@ export class UserComponent implements OnInit {
       setTimeout(() => {
         this.showMessage = false;
         this.successMessage = false;
-      }, 5000);
+      }, 2000);
     });
   }
 }
