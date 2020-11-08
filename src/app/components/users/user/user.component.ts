@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ClientApiService } from 'src/app/client-api.service';
+import { ClientApiService } from 'src/app/services/client-api.service';
 import { User } from 'src/app/Models/user.model';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user',
@@ -16,7 +15,6 @@ export class UserComponent implements OnInit {
   showMessage = false;
   successMessage: boolean;
   constructor(
-      private userService: UsersService,
       private apiService: ClientApiService,
       private route: ActivatedRoute) { }
 

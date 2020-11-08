@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ClientApiService } from 'src/app/client-api.service';
-import { FullUser, User } from 'src/app/Models/user.model';
-import { UsersService } from 'src/app/services/users.service';
+import { ClientApiService } from 'src/app/services/client-api.service';
+import { FullUser } from 'src/app/Models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -17,7 +15,7 @@ export class UsersComponent implements OnInit {
   totalRecords = 0;
   fetchForward = false;
   // deleteSuccess
-  constructor(private userService: UsersService, private apiService: ClientApiService) { }
+  constructor( private apiService: ClientApiService) { }
 
   ngOnInit(): void {
    this.fetch(this.page);
