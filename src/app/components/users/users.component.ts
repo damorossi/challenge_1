@@ -9,7 +9,6 @@ import { UsersListComponent } from './users-list/users-list.component';
   ]
 })
 export class UsersComponent implements OnInit {
-  // @Input() users: FullUser[];
 
   ngOnInit(): void {
   }

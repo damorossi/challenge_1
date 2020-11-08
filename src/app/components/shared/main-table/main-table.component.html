@@ -1,7 +1,7 @@
 <div class="main-container animated-fadeIn fast mt-5">
     <h1>{{dyamicModelName}} list</h1>
     <div class="row" *ngIf="!loading && items?.length > 0">
-        <!-- if you have other type of list instead of users, you can set them here or do it in an external component-->
+        <!--this can be used in a separated component if we are going to add different list elements ex: companies-->
        <app-users-list *ngIf="dyamicModelName === 'users'"
             (deleteInstance)="deleteItem($event)"
             [items]="items"

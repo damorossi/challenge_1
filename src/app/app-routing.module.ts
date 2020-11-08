@@ -6,9 +6,7 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
-import { MainTableComponent } from './components/shared/main-table/main-table.component';
 import { UserComponent } from './components/users/user/user.component';
-import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { UsersComponent } from './components/users/users.component';
 import { AuthGuard } from './services/auth.guard';
 
