@@ -10,6 +10,10 @@ import { UserComponent } from './components/users/user/user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataHandlerComponent } from './components/shared/data-handler/data-handler.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthGuard } from './services/auth.guard';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { DataHandlerComponent } from './components/shared/data-handler/data-hand
     HomeComponent,
     UsersComponent,
     UserComponent,
-    DataHandlerComponent
+    DataHandlerComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { DataHandlerComponent } from './components/shared/data-handler/data-hand
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

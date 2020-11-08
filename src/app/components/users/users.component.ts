@@ -27,13 +27,10 @@ export class UsersComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.loading = true;
-          setTimeout(() => {
-
-            this.totalRecords = data.total;
-            this.fetchForward = (this.page * data.data.length) < data.total;
-            this.loading = false;
-            this.users = data.data;
-          }, 6000);
+          this.totalRecords = data.total;
+          this.fetchForward = (this.page * data.data.length) < data.total;
+          this.loading = false;
+          this.users = data.data;
       });
   }
 

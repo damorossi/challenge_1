@@ -1,0 +1,29 @@
+<div class="row animated fadeIn faster">
+  <div class="col-md6 offset-md-3 mt4">
+      <h3>login</h3>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control"
+              id="email"
+              name="email"
+              ngModel
+              required
+              #first="ngModel"
+              placeholder="email">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+              name="password"
+              ngModel
+              required
+              #first="ngModel"
+              class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">  Submit <i class="fa fa-sign-in-alt"></i></button>
+        </form>
+
+  </div>
+</div>
