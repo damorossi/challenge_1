@@ -13,6 +13,8 @@ export class UsersComponent implements OnInit {
   users: FullUser[];
   page = 1;
   loading = false;
+  totalRecords = 0;
+  fetchForward = false;
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
@@ -24,8 +26,14 @@ export class UsersComponent implements OnInit {
       this.userService.getUsers(page.toString())
       .subscribe(
         (data: any) => {
-          this.loading = false;
-          this.users = data.data;
+          this.loading = true;
+          setTimeout(() => {
+
+            this.totalRecords = data.total;
+            this.fetchForward = (this.page * data.data.length) < data.total;
+            this.loading = false;
+            this.users = data.data;
+          }, 6000);
       });
   }
 

@@ -1,0 +1,17 @@
+<div class="loading-elements">
+    <div class="alert alert-warning text-center mt-5" *ngIf="dataLength === 0">
+        <h4 class="alert-heading"> No records </h4>
+        <p> 
+            <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+    </div>
+    <div class="alert alert-info text-center mt-5" *ngIf="loading">
+        <h4 class="alert-heading"> Loading </h4>
+        <p>
+            <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            please wait...
+        </p> 
+    </div>
+ </div>

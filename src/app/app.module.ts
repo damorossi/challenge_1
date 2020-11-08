@@ -9,6 +9,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/users/user/user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DataHandlerComponent } from './components/shared/data-handler/data-handler.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HomeComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    DataHandlerComponent
   ],
   imports: [
     BrowserModule,
