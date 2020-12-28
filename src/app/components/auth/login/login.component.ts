@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  title = 'Login'
+  title = 'Login';s
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
