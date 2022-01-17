@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { DynamicModule } from 'ng-dynamic-component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,6 +19,7 @@ import { CommonTableComponent } from './shared/common-table/common-table.compone
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ServerErrorComponent } from './components/server-error/server-error.component';
 import { MainTableComponent } from './components/shared/main-table/main-table.component';
+import { MainTableContainerComponent } from './components/shared/main-table/main-table-container.component';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 
 @NgModule({
@@ -33,6 +35,7 @@ import { UsersListComponent } from './components/users/users-list/users-list.com
     ForbiddenComponent,
     CommonTableComponent,
     MainTableComponent,
+    MainTableContainerComponent,
     UsersListComponent,
     NotFoundComponent,
     ServerErrorComponent,
@@ -42,6 +45,7 @@ import { UsersListComponent } from './components/users/users-list/users-list.com
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    DynamicModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

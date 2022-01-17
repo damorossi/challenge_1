@@ -1,27 +1,26 @@
 <div class="main-container animated-fadeIn fast mt-5">
-    <h1>{{dyamicModelName}} list</h1>
-    <div class="row" *ngIf="!loading && items?.length > 0">
-        <!--this can be used in a separated component if we are going to add different list elements ex: companies-->
-       <app-users-list *ngIf="dyamicModelName === 'users'"
-            (deleteInstance)="deleteItem($event)"
-            [items]="items"
-        ></app-users-list>
+  <h1>{{dyamicModelName}} list</h1>
+  <div class="row" *ngIf="!loading && items?.length > 0">
+    <div class="{{classPrefix}}-grid" *ngIf="items">
+
+      <ng-template [ngComponentOutlet]="tableComponent" [ndcDynamicInputs]="tableComponentInputProperties"
+        [ndcDynamicOutputs]="tableComponentOutputProperties"></ng-template>
     </div>
-    <div class="row text-center">
-        <div class="col text-center">
-            <button class="btn btn-light"
-                (click)="fetchPrev()"
-                *ngIf="page > 1">
-                <i class="fa fa-arrow-circle-left m5"></i> Prev
-            </button> 
-            {{page}}
-            <button class="btn btn-light"
-                (click)="fetchNext()"
-                *ngIf="fetchForward">
-                <i class="fa fa-arrow-circle-right m5"></i> Next
-            </button>
-        </div>
+  </div>
+  <div class="row text-center">
+    <div class="col text-center">
+      <!-- (click)="fetchPrev()" -->
+      <button class="btn btn-light" *ngIf="pageIndex > 1">
+        <i class="fa fa-arrow-circle-left m5"></i> Prev
+      </button>
+      {{pageIndex}}
+      <!-- (click)="fetchNext()" -->
+      <!-- *ngIf="fetchForward" -->
+      <button *ngIf="fetchForward" class="btn btn-light" (click)="fetchNext.emit()">
+        <i class="fa fa-arrow-circle-right m5"></i> Next
+      </button>
     </div>
-    <app-data-handler [loading]="loading" [dataLength]="items?.length"></app-data-handler>
-    <div class="row mb-20">
-</div>
+  </div>
+  <app-data-handler [loading]="loading" [dataLength]="items?.length"></app-data-handler>
+  <div class="row mb-20">
+  </div>
