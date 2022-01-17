@@ -1,29 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="https://www.alea.com/themes/alea/library/images/logo-alea.svg"></a>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/home">Home </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/users">Users</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/register">Register</a>
-        </li>
-      
-        <li class="nav-item" *ngIf="isUserLogedIn()">
-          <a class="nav-link" (click)="logOut()">LogOut</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="mailto:hohner.blues@gmail.com" >hohner.blues@gmail.com</a>
-        </li>
-      </ul>
-      <span class="navbar-text"> test evaluation for DRossi </span>
-    </div>
-  </nav>
-  
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/home">Home </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/users">Users</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isUserLogedIn()">
+        <a class="nav-link" (click)="logOut()">LogOut</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="mailto:hohner.blues@gmail.com">hohner.blues@gmail.com</a>
+      </li>
+    </ul>
+    <span class="navbar-text"> test evaluation for DRossi </span>
+  </div>
+</nav>
