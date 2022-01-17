@@ -1,5 +1,5 @@
 
-This is a test project for frontend. please review on widescreen. more info on home section.
+This is a test project for frontend. 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
